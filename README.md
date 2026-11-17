@@ -10,9 +10,13 @@
 | Fecha | 16 de noviembre de 2026 |
 | Versión | v.01 |
 
-**Estado:** aplicación funcional en navegador local, según las pruebas reportadas
-por el autor. Preparada para publicación; GitHub Pages todavía no se ha desplegado
-ni verificado. Este repositorio contiene exclusivamente el frontend estático.
+**Estado final:** repositorio publicado en GitHub y aplicación operativa en
+GitHub Pages. El autor confirmó ambas integraciones OpenAI, las validaciones,
+el renderizado Markdown, el favicon y el funcionamiento en modo incógnito.
+Este repositorio contiene exclusivamente el frontend estático.
+
+- **Repositorio:** [Derek-Alejandro/webapp-automatizacion-ia](https://github.com/Derek-Alejandro/webapp-automatizacion-ia)
+- **Aplicación:** [Abrir en GitHub Pages](https://derek-alejandro.github.io/webapp-automatizacion-ia/)
 
 ## 1. Descripción general del proyecto
 
@@ -45,7 +49,7 @@ Comparar la integración nativa de OpenAI con el acceso mediante Responses API.
 | OpenAI y Responses API | Generación de respuestas; modelo configurado gpt-4o-mini |
 | Marked 18.2.1 | Interpretación de Markdown |
 | DOMPurify 3.4.18 | Sanitización del contenido antes de insertarlo |
-| GitHub Pages | Alojamiento estático previsto |
+| GitHub Pages | Alojamiento estático de la aplicación publicada |
 | Node.js 26 y jsdom 31.0.1 | Verificación local; no necesarios para servir el sitio |
 
 Marked y DOMPurify se incluyen como copias locales con versiones fijas y
@@ -147,7 +151,7 @@ parte del repositorio del frontend**.
 
 ## 8. Instrucciones de uso
 
-1. Abrir la aplicación con JavaScript habilitado.
+1. Abrir [la aplicación publicada](https://derek-alejandro.github.io/webapp-automatizacion-ia/) con JavaScript habilitado.
 2. Seleccionar tema y nivel.
 3. Elegir OpenAI nativo o HTTP Request.
 4. Escribir una pregunta concreta, de hasta 1000 caracteres.
@@ -199,19 +203,20 @@ directamente los archivos estáticos y las bibliotecas de `assets/vendor/`.
 
 ## 11. Despliegue en GitHub Pages
 
-**Configuración prevista, todavía no aplicada:**
+**Configuración del proyecto publicado:**
 
 | Elemento | Valor |
 | --- | --- |
 | Usuario | Derek-Alejandro |
 | Repositorio | webapp-automatizacion-ia |
+| URL del repositorio | https://github.com/Derek-Alejandro/webapp-automatizacion-ia |
 | Rama | main |
 | Carpeta de publicación | /(root) |
-| URL esperada, no verificada | https://derek-alejandro.github.io/webapp-automatizacion-ia/ |
+| URL de la aplicación | https://derek-alejandro.github.io/webapp-automatizacion-ia/ |
 
-Cuando se autorice la publicación:
+Procedimiento de despliegue, conservado como referencia para reproducir la configuración:
 
-1. Crear el repositorio `webapp-automatizacion-ia` en la cuenta indicada.
+1. Utilizar el repositorio `webapp-automatizacion-ia` de la cuenta indicada.
 2. Colocar **el contenido de esta carpeta** en la raíz de `main`; `index.html`
    debe estar en la raíz del repositorio, sin otra carpeta contenedora.
 3. Incluir CSS, todos los módulos, favicon, bibliotecas y licencias. Conservar
@@ -221,7 +226,7 @@ Cuando se autorice la publicación:
 5. En **Settings → Pages → Build and deployment**, seleccionar
    **Deploy from a branch**, **main** y **/(root)**; guardar.
 6. Esperar la ejecución de Pages y revisar su resultado en GitHub.
-7. Abrir la URL publicada y realizar las verificaciones pendientes.
+7. Abrir la URL publicada y repetir las verificaciones funcionales después de cada actualización.
 
 `.nojekyll` indica que el proyecto es estático y no necesita procesamiento
 Jekyll. Todas las rutas propias son relativas y soportan la subruta del repositorio.
@@ -231,13 +236,17 @@ Referencia: [configurar la fuente de publicación de GitHub Pages](https://docs.
 
 ### CORS en el dominio publicado
 
-La prueba local no demuestra CORS desde GitHub Pages. En el navegador publicado,
-revisar Red y Consola: OPTIONS, POST, estado HTTP y JSON.
+El autor confirmó el funcionamiento de ambas integraciones desde GitHub Pages,
+también en modo incógnito. La comunicación entre el origen publicado y n8n
+funciona en las pruebas reportadas. No se adjunta una captura independiente de
+las cabeceras OPTIONS; ante futuras incidencias o cambios de configuración,
+revisar Red y Consola: OPTIONS cuando corresponda, POST, estado HTTP y JSON.
 Si n8n restringe orígenes, el origen que corresponde a este sitio es
 `https://derek-alejandro.github.io`, sin la ruta del repositorio.
 Revisar permisos para POST y Content-Type. No utilizar `no-cors`.
 Solo tras diagnosticar un fallo, decidir si hace falta ajustar n8n o cambiar
-manualmente el formato de envío. Esos cambios no se realizaron en esta preparación.
+manualmente el formato de envío. Esta actualización documental no cambió CORS
+ni el formato de envío.
 
 ## 12. Validaciones y manejo de errores
 
@@ -310,18 +319,25 @@ también puede ser conectividad, endpoint o bloqueo del navegador.
 | Diseño responsivo y favicon local | Funcionamiento confirmado por el autor | Reportada por el autor |
 | Pruebas automatizadas | 30 pruebas: validación, HTTP, contrato, timeout, duplicados, estados, Markdown y XSS | Aprobadas en la revisión local |
 | Rutas y módulos | Recursos relativos, imports locales y sintaxis revisados | Revisados localmente |
-| Despliegue main / root | Repositorio y Pages todavía no publicados | Pendiente |
-| CORS desde GitHub Pages | OPTIONS y POST desde el origen definitivo | Pendiente |
-| Ambas respuestas exitosas en Pages | HTTP 200, JSON, Markdown y metadatos correctos | Pendiente |
-| Recursos y responsividad en Pages | CSS, módulos, bibliotecas, favicon y vista móvil | Pendiente |
+| Despliegue en GitHub Pages | Repositorio publicado y aplicación accesible en la URL definitiva | Confirmado por el autor |
+| Comunicación desde GitHub Pages | Ambas integraciones funcionan desde el origen publicado; sin captura independiente de OPTIONS | Confirmada por el autor |
+| OpenAI nativo en Pages | Consulta y respuesta real desde la aplicación publicada | Confirmada por el autor |
+| HTTP / Responses API en Pages | Consulta y respuesta real desde la aplicación publicada | Confirmada por el autor |
+| Validaciones en Pages | Validaciones comprobadas en la aplicación publicada | Confirmadas por el autor |
+| Markdown y favicon en Pages | Presentación de respuestas y favicon comprobados | Confirmados por el autor |
+| Modo incógnito | Funcionamiento de la aplicación publicada en una sesión de incógnito | Confirmado por el autor |
 
 Las pruebas automatizadas usan Fetch sustituido y DOM simulado; las de Markdown
 emplean jsdom y las bibliotecas reales. Comprueban sanitización de HTML malicioso,
 enlaces peligrosos, bloques de código, escapes y fallback. No consumen créditos
 ni sustituyen una prueba en navegador real.
 
-Esta etapa de documentación no realizó nuevas consultas a OpenAI ni modificó
-el workflow. No se afirma que GitHub Pages funcione antes de su despliegue.
+El estado final incorpora las verificaciones en GitHub Pages comunicadas por el
+autor. Las comprobaciones previamente pendientes de publicación y funcionamiento
+general quedan cubiertas por ese reporte; no se atribuyen a nuevas pruebas
+automatizadas ni a una inspección independiente del navegador.
+Esta actualización documental no realizó nuevas consultas a OpenAI ni modificó
+el workflow o los archivos funcionales.
 
 ## 15. Autor y créditos académicos
 
