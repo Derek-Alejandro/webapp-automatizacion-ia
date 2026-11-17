@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101D35">
+  <meta name="description" content="Asistente académico de tecnologías de la información. Aprende a tu nivel con respuestas organizadas y ejemplos prácticos.">
+  <title>3.4 Web app para automatización IA</title>
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/styles.css">
+  <script type="module" src="./js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#consulta">Ir a la consulta</a>
+  <header class="site-header">
+    <div class="container app-container header-inner">
+      <a class="brand" href="./index.html" aria-label="3.4 Web app para automatización IA, inicio">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="m16 4 3.5 8.5L28 16l-8.5 3.5L16 28l-3.5-8.5L4 16l8.5-3.5L16 4Z" stroke="currentColor" stroke-width="1.7"/><path d="m16 12 4 4-4 4-4-4 4-4Z" fill="currentColor"/></svg></span>
+        <div><h1 id="page-title">3.4 Web app para automatización IA</h1><span class="brand-caption">Asistente académico de tecnologías de la información</span></div>
+      </a>
+      <div class="header-context"><span class="practice-label">PANEL ACADÉMICO</span><span class="connection-badge"><span aria-hidden="true"></span>Conexión bajo demanda</span></div>
+    </div>
+  </header>
+
+  <main class="container app-container">
+    <div class="dashboard-toolbar"><p><span>Asistente TIC</span><span aria-hidden="true">/</span><strong>Panel de consultas</strong></p><span class="workspace-tag">n8n Cloud <span aria-hidden="true">·</span> OpenAI</span></div>
+
+    <div class="workspace row g-4 align-items-stretch">
+      <section id="consulta" class="col-lg-6" aria-labelledby="form-title">
+        <div class="surface consultation-surface">
+          <div class="section-heading"><div><p class="section-step">CONFIGURACIÓN DE CONSULTA</p><h2 id="form-title">Nueva consulta</h2></div><span class="heading-symbol" aria-hidden="true">＋</span></div>
+          <p class="section-description">Elige un tema y cuéntanos qué quieres comprender.</p>
+          <form id="consultation-form" aria-describedby="availability-note">
+            <div class="row g-3">
+              <div class="col-sm-7"><label class="form-label" for="tema">Tema <span class="required-mark" aria-hidden="true">*</span></label>
+                <select class="form-select" id="tema" name="tema" required aria-describedby="tema-error">
+                  <option value="" selected disabled>Selecciona un tema</option><option>Inteligencia artificial</option><option>Redes</option><option>Programación</option><option>Bases de datos</option><option>Internet de las cosas (IoT)</option>
+                </select><p id="tema-error" class="field-error" hidden></p>
+              </div>
+              <div class="col-sm-5"><label class="form-label" for="nivel">Nivel <span class="required-mark" aria-hidden="true">*</span></label>
+                <select class="form-select" id="nivel" name="nivel" required aria-describedby="nivel-error"><option value="" selected disabled>Tu nivel</option><option>Básico</option><option>Intermedio</option><option>Avanzado</option></select><p id="nivel-error" class="field-error" hidden></p>
+              </div>
+            </div>
+            <fieldset class="integration-fieldset"><legend>Integración</legend><p class="field-hint" id="integration-hint">Selecciona la ruta que procesará tu consulta.</p>
+              <div class="route-options" role="group" aria-describedby="integration-hint integracion-error">
+                <label class="route-option"><input type="radio" name="integracion" value="nativo" checked required aria-describedby="integracion-error"><span class="route-card"><span class="route-top"><span class="route-icon" aria-hidden="true">✳</span><span class="radio-indicator" aria-hidden="true"></span></span><strong>OpenAI nativo</strong><span>Nodo integrado en n8n</span></span></label>
+                <label class="route-option"><input type="radio" name="integracion" value="http" required aria-describedby="integracion-error"><span class="route-card"><span class="route-top"><span class="route-icon code-icon" aria-hidden="true">&lt;/&gt;</span><span class="radio-indicator" aria-hidden="true"></span></span><strong>HTTP Request</strong><span>OpenAI Responses API</span></span></label>
+              </div>
+              <p id="integracion-error" class="field-error" hidden></p>
+            </fieldset>
+            <div class="question-field"><label class="form-label" for="pregunta">Tu pregunta <span class="required-mark" aria-hidden="true">*</span></label><textarea class="form-control" id="pregunta" name="pregunta" rows="5" maxlength="1000" required placeholder="Por ejemplo: ¿qué es una variable en Python?" aria-describedby="question-hint pregunta-error question-counter"></textarea><div class="question-footer"><span id="question-hint">Una pregunta concreta da lugar a una mejor explicación.</span><span id="question-counter"><span id="character-count">0</span> / 1000</span></div><p id="pregunta-error" class="field-error" hidden></p></div>
+            <div class="form-actions"><button class="btn btn-consult" id="submit-button" type="submit" disabled aria-describedby="availability-note"><span id="submit-label">Consultar con IA</span><span class="spinner-border spinner-border-sm" id="submit-spinner" aria-hidden="true" hidden></span><span aria-hidden="true">↗</span></button><button class="btn btn-reset" type="reset">Limpiar</button></div>
+            <p class="availability-note" id="availability-note"><span aria-hidden="true">◌</span> JavaScript debe estar habilitado para preparar y enviar consultas.</p>
+            <p class="required-note">* Campos obligatorios.</p>
+          </form>
+        </div>
+      </section>
+
+      <section class="col-lg-6" aria-labelledby="response-title">
+        <div class="surface response-surface" id="response-panel" aria-busy="false">
+          <div class="section-heading"><div><p class="section-step">ASISTENTE ACADÉMICO</p><h2 id="response-title">Respuesta del asistente</h2></div><span class="response-status" id="response-status" role="status">Sin consulta</span></div>
+          <div class="route-summary"><span class="summary-dot" aria-hidden="true"></span>Ruta seleccionada <strong id="selected-route">OpenAI nativo</strong></div>
+          <div class="response-empty" id="response-empty"><div class="empty-illustration" aria-hidden="true"><svg viewBox="0 0 180 146" fill="none"><circle cx="90" cy="73" r="58" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="3 5"/><rect x="41" y="26" width="98" height="98" rx="17" fill="var(--paper)" stroke="currentColor" stroke-opacity=".28"/><path d="M64 54h52M64 68h38M64 82h45" stroke="currentColor" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/><rect x="106" y="86" width="38" height="38" rx="12" fill="var(--accent)"/><path d="m125 94 3 8 8 3-8 3-3 8-3-8-8-3 8-3 3-8Z" fill="white"/><circle cx="39" cy="92" r="5" fill="var(--lime)"/><path d="M142 30v12m-6-6h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><h3>Las buenas ideas empiezan<br>con una pregunta.</h3><p>Aquí encontrarás una explicación organizada<br class="desktop-break"> para comprender, conectar y aplicar.</p><span class="empty-caption">TU SIGUIENTE DESCUBRIMIENTO ESTÁ POR ESCRIBIRSE</span></div>
+          <div id="response-loading" class="response-loading" role="status" hidden><span class="spinner-border" aria-hidden="true"></span><p>Consultando el asistente...</p><span>La consulta puede tardar unos segundos.</span></div>
+          <div id="response-error" class="response-error" role="alert" hidden></div>
+          <div id="response-result" class="response-result" hidden><dl id="response-metadata" class="response-metadata"></dl><div id="response-text" class="response-text" tabindex="0" aria-label="Respuesta académica"></div></div>
+          <p id="ui-message" class="ui-message" role="status" aria-live="polite"></p>
+          <div class="response-footer"><span aria-hidden="true">✧</span><p>La IA acompaña tu aprendizaje.<br><strong>Contrasta las respuestas con fuentes académicas.</strong></p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer container app-container"><div><p>Desarrollado por <strong>Derek Alejandro Vargas Meneses</strong></p><p>ITIC – 22200792 – TecNM Pachuca – v.01</p></div><span class="footer-tag">Práctica 3.4 <span aria-hidden="true">/</span> Automatización IA</span></footer>
+  <noscript><div class="noscript-note">Activa JavaScript para utilizar los controles interactivos de la aplicación.</div></noscript>
+</body>
+</html>

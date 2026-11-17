@@ -1,0 +1,24 @@
+node_modules/
+
+# Configuración privada y credenciales locales
+.env
+.env.*
+!.env.example
+.npmrc
+*.pem
+*.key
+*.pfx
+*.p12
+
+# Archivos de desarrollo, cachés y temporales
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+coverage/
+
+# Las pruebas PowerShell de n8n no pertenecen al frontend
+*.ps1
